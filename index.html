@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff5e5">
+<meta name="description" content="A little Diwali invitation made especially for Miss Verma. ❤️">
+<meta property="og:title" content="A Little Invitation for Miss Verma ❤️">
+<meta property="og:description" content="Someone has a little invitation for you. Open it to find out!">
+<title>A Little Invitation for Miss Verma ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Caveat:wght@600;700&display=swap');
+
+:root {
+  --cream:#fff5e5;
+  --peach:#f3c6a5;
+  --yellow:#ffe7a9;
+  --brown:#795d45;
+  --terracotta:#bd704b;
+  --ink:#634b39;
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  min-height:100vh;
+  font-family:'DM Sans',sans-serif;
+  color:var(--ink);
+  background:linear-gradient(135deg,#fff8eb,#ffe9d5 55%,#fff2d8);
+  overflow-x:hidden;
+}
+.screen {
+  display:none;
+  min-height:100vh;
+  width:100%;
+  padding:30px 18px;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.screen.active {display:flex;animation:appear .65s ease both}
+@keyframes appear {
+  from {opacity:0;transform:translateY(12px)}
+  to {opacity:1;transform:translateY(0)}
+}
+.wrap {width:min(680px,100%);text-align:center;position:relative;z-index:2}
+.progress {
+  display:flex;justify-content:center;align-items:center;gap:12px;
+  margin-bottom:36px;color:#aa8d70;font-size:12px;letter-spacing:5px;font-weight:700;
+}
+.progress-line {width:110px;height:4px;border-radius:9px;background:#f7dfb8;overflow:hidden}
+.progress-fill {height:100%;background:var(--terracotta);transition:width .4s}
+.eyebrow {font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#a88769}
+h1,h2 {font-family:'Playfair Display',serif;font-weight:600}
+h1 {font-size:clamp(38px,7vw,66px);line-height:1.13;margin:12px 0;color:#a95f3e}
+h2 {font-size:clamp(30px,5vw,43px);margin:10px 0 18px}
+.script {font-family:'Caveat',cursive}
+.subtitle {font-size:17px;color:#9c8068;line-height:1.7}
+button {
+  border:0;cursor:pointer;font-family:inherit;font-size:15px;font-weight:700;
+  border-radius:50px;padding:16px 28px;transition:transform .2s,box-shadow .2s;
+}
+button:hover {transform:translateY(-3px);box-shadow:0 10px 25px #9a67442b}
+.primary {background:#b96f4b;color:white;box-shadow:0 8px 20px #a95f3e2b}
+.secondary {background:#fff0d6;color:#8c6248;border:1px solid #efd4ad}
+.envelope {
+  width:min(340px,85vw);height:220px;margin:36px auto 30px;
+  position:relative;background:#c98259;border-radius:15px;
+  box-shadow:0 18px 35px #9b68443b;overflow:hidden;
+}
+.envelope:before {
+  content:"";position:absolute;inset:0;
+  background:#a85f3e;clip-path:polygon(0 0,100% 0,50% 62%);
+}
+.envelope:after {
+  content:"";position:absolute;inset:0;
+  background:#d9956c;clip-path:polygon(0 100%,0 0,50% 62%,100% 0,100% 100%);
+}
+.seal {
+  position:absolute;z-index:2;left:50%;top:55%;transform:translate(-50%,-50%);
+  width:52px;height:52px;border-radius:50%;background:#a85f3e;color:white;
+  display:grid;place-items:center;font-size:23px;box-shadow:0 4px 12px #78452e55;
+}
+.letter {
+  text-align:left;background:#fffdf7;border:1px solid #f0dfc5;
+  border-radius:18px;padding:clamp(23px,5vw,42px);
+  box-shadow:0 18px 45px #9b68441c;line-height:1.85;font-size:15px;
+}
+.letter p {margin:0 0 16px}
+.letter .greeting {font-family:'Caveat',cursive;font-size:29px;color:#ae6747;font-weight:700}
+.letter .signoff {font-family:'Caveat',cursive;font-size:25px;color:#ae6747}
+.details {
+  background:#fffaf0;border:1px solid #f1dfbf;border-radius:25px;
+  padding:30px 25px;box-shadow:0 15px 35px #9b68441c;
+}
+.detail-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.detail {
+  padding:19px 10px;background:#fff0d9;border-radius:16px;
+}
+.detail small {display:block;font-size:11px;letter-spacing:2px;color:#a48769;font-weight:700}
+.detail strong {display:block;margin-top:9px;font-size:15px;color:#80583e}
+.lamp {font-size:48px;margin-bottom:8px}
+.request-card {
+  background:#fffaf0;border:1px solid #f1dfbf;border-radius:25px;
+  padding:45px 25px;box-shadow:0 15px 35px #9b68441c;
+}
+.heart {font-size:38px;margin:12px}
+.buttons {display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.result {display:none;margin:25px auto 0;max-width:500px}
+.result.show {display:block;animation:appear .5s ease}
+.result h2 {color:#ae6747}
+.decor {
+  position:absolute;pointer-events:none;opacity:.65;color:#e9bd66;
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float {50%{transform:translateY(-13px) rotate(8deg)}}
+.d1 {top:12%;left:9%;font-size:24px}
+.d2 {top:22%;right:10%;font-size:20px;animation-delay:1s}
+.d3 {bottom:16%;left:13%;font-size:18px;animation-delay:2s}
+.d4 {bottom:12%;right:12%;font-size:25px;animation-delay:.5s}
+.confetti {
+  position:fixed;top:-15px;z-index:10;pointer-events:none;
+  animation:fall 3.5s linear forwards;
+}
+@keyframes fall {to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.footer {font-size:12px;color:#b39a7e;margin-top:28px}
+@media(max-width:520px) {
+  .screen {padding:24px 16px}
+  .progress {margin-bottom:25px}
+  .detail-grid {grid-template-columns:1fr;gap:9px}
+  .detail {padding:14px}
+  .detail strong {margin-top:5px}
+  .letter {font-size:14px;line-height:1.8}
+  .buttons button {width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="screen active" id="screen1">
+  <span class="decor d1">✦</span><span class="decor d2">✧</span>
+  <span class="decor d3">✦</span><span class="decor d4">✧</span>
+  <main class="wrap">
+    <div class="progress"><span>01 / 05</span><div class="progress-line"><div class="progress-fill" style="width:20%"></div></div></div>
+    <p class="script" style="font-size:34px;margin:0;color:#795d45">Look who's here,</p>
+    <h1 class="script">Heyiee! Miss Verma! ❤️</h1>
+    <p class="subtitle">I made something for you hehe ✨</p>
+    <div class="envelope"><div class="seal">♥</div></div>
+    <button class="primary" onclick="goTo(2)">Open Your Note 💌</button>
+    <p class="footer">A little something, made with warmth ✨</p>
+  </main>
+</div>
+
+<div class="screen" id="screen2">
+  <span class="decor d1">✦</span><span class="decor d4">✧</span>
+  <main class="wrap">
+    <div class="progress"><span>02 / 05</span><div class="progress-line"><div class="progress-fill" style="width:40%"></div></div></div>
+    <p class="eyebrow">A little note for you</p>
+    <h2>Something from the heart 💌</h2>
+    <article class="letter">
+      <p class="greeting">Hey Miss Verma! ❤️</p>
+      <p>Everyone knows there's a Diwali party, but what not everyone knows is that your presence could make it truly special.</p>
+      <p>If you come, the evening will become a little more memorable. You have this way of making the whole atmosphere feel warmer and brighter, almost like the place itself would bloom a little. ✨</p>
+      <p>Even if the place gets crowded and space becomes a little less, your presence could still make someone's day.</p>
+      <p>At the end, I just want to say that I'd genuinely be happy if you were there.</p>
+      <p>I know I might not even get the chance to talk to you properly, and maybe I'll feel a little sad about that. But at least I'll get to see you. ❤️</p>
+      <p class="signoff">That's all I wanted to say! ✨</p>
+    </article>
+    <div style="margin-top:25px"><button class="primary" onclick="goTo(3)">There's More... ✨</button></div>
+  </main>
+</div>
+
+<div class="screen" id="screen3">
+  <span class="decor d1">✦</span><span class="decor d2">✧</span>
+  <main class="wrap">
+    <div class="progress"><span>03 / 05</span><div class="progress-line"><div class="progress-fill" style="width:60%"></div></div></div>
+    <div class="details">
+      <div class="lamp">🪔</div>
+      <p class="eyebrow">You're invited to</p>
+      <h2>Diwali Celebration</h2>
+      <p class="subtitle">An evening full of lights, smiles & good vibes!</p>
+      <div class="detail-grid">
+        <div class="detail"><small>DATE</small><strong>4th November<br>2026</strong></div>
+        <div class="detail"><small>TIME</small><strong>4:00 PM –<br>7:00 PM</strong></div>
+        <div class="detail"><small>VENUE</small><strong>MAXOPP</strong></div>
+      </div>
+      <p class="script" style="font-size:25px;margin:25px 0 0">It won't be quite the same without you! ❤️</p>
+    </div>
+    <div style="margin-top:25px"><button class="primary" onclick="goTo(4)">One More Thing... 🥹</button></div>
+  </main>
+</div>
+
+<div class="screen" id="screen4">
+  <span class="decor d1">✦</span><span class="decor d3">✧</span>
+  <main class="wrap">
+    <div class="progress"><span>04 / 05</span><div class="progress-line"><div class="progress-fill" style="width:80%"></div></div></div>
+    <div class="request-card">
+      <div class="heart">🥹</div>
+      <p class="eyebrow">Just a little request</p>
+      <h2>One Little Request...</h2>
+      <p class="subtitle" style="max-width:460px;margin:0 auto 25px">Please do come, Miss Verma! The evening would be a little more special with you there. ❤️</p>
+      <button class="primary" onclick="goTo(5)">Okay, tell me! 💛</button>
+    </div>
+  </main>
+</div>
+
+<div class="screen" id="screen5">
+  <span class="decor d1">✦</span><span class="decor d2">✧</span>
+  <main class="wrap">
+    <div class="progress"><span>05 / 05</span><div class="progress-line"><div class="progress-fill" style="width:100%"></div></div></div>
+    <div class="request-card">
+      <div class="lamp">🪔</div>
+      <p class="eyebrow">The final question</p>
+      <h2>So, Miss Verma...</h2>
+      <p class="subtitle">Will you be coming? ❤️</p>
+      <div class="buttons" id="choices">
+        <button class="primary" onclick="answerYes()">Yesssssss! ❤️</button>
+        <button class="secondary" onclick="answerMaybe()">Maybe...</button>
+      </div>
+      <div class="result" id="yesResult">
+        <h2>Yayyyyy! 🎉</h2>
+        <p class="subtitle">Can't wait to see you, Miss Verma! ❤️</p>
+        <div style="font-size:30px">🪔 ✨ 💛 ✨ 🪔</div>
+      </div>
+      <div class="result" id="maybeResult">
+        <p class="subtitle">Umm, it's okay yrr. I guess meeting me just isn't happening this time. But thank you, Miss Verma. ❤️</p>
+        <div style="font-size:30px">❤️</div>
+      </div>
+    </div>
+    <p class="footer">Made with a little thought and lots of warmth ✨</p>
+  </main>
+</div>
+
+<script>
+function goTo(number) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen' + number).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function answerYes() {
+  document.getElementById('choices').style.display='none';
+  document.getElementById('yesResult').classList.add('show');
+  for(let i=0;i<65;i++) {
+    const piece=document.createElement('div');
+    piece.className='confetti';
+    piece.textContent=['✨','💛','❤️','✦','🌼'][Math.floor(Math.random()*5)];
+    piece.style.left=Math.random()*100+'vw';
+    piece.style.animationDelay=Math.random()*1.5+'s';
+    piece.style.fontSize=(14+Math.random()*17)+'px';
+    document.body.appendChild(piece);
+    setTimeout(()=>piece.remove(),5000);
+  }
+}
+function answerMaybe() {
+  document.getElementById('choices').style.display='none';
+  document.getElementById('maybeResult').classList.add('show');
+}
+</script>
+</body>
+</html>
